@@ -20,20 +20,19 @@ app.set('view engine', 'hbs')
 
 app.use(session({
     secret: 'aspidelas',
-    cookie: {
-        httpOnly: false,
-        secure: false,
-        maxAge: 3000
-    },
-    rolling: true,
     resave: true,
-    saveUninitialized: false
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 300
+    }
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(express.static('public'))
+
 app.use('/', usuariosRouter)
 app.use('/', productosRouter)
 app.use('/', authRouter)

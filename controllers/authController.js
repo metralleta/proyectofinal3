@@ -5,19 +5,24 @@ async function getLoginController(req, res) {
 }
 
 async function postLoginController(req, res) {
-    res.json('putos')
-}
-
-async function postRegistroController(req, res) {
-    const email = req.params.email
-    const usuarios = await obtenerUsuarioByEmail(email)
-    res.json(usuarios)
+    console.log(req.session.passport)
+    res.render('dashboard')
 }
 
 async function getLoginErrorController(req, res) {
-    const email = req.params.email
-    const usuarios = await obtenerUsuarioByEmail(email)
-    res.json(usuarios)
+    res.json('error en el login')
 }
 
-export { getLoginController, postLoginController, postRegistroController, getLoginErrorController }
+async function getRegistroController(req, res) {
+    res.render('registro', { layout: false })
+}
+
+async function postRegistroController(req, res) {
+    res.json('aca va a ir el proceso del form de registro')
+}
+
+async function getRegistroErrorController(req, res) {
+    res.json('aca va el error de registro')
+}
+
+export { getLoginController, postLoginController, postRegistroController, getLoginErrorController, getRegistroErrorController, getRegistroController }

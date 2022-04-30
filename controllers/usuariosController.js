@@ -1,4 +1,8 @@
-import { obtenerTodosLosUsuarios, crearUsuario, obtenerUsuarioByEmail } from '../services/usuariosService.js'
+import {
+    obtenerTodosLosUsuarios,
+    crearUsuario, 
+    obtenerUsuarioByEmail 
+} from '../services/usuariosService.js'
 
 async function getUsuarioController(req, res) {
     const usuarios = await obtenerTodosLosUsuarios()

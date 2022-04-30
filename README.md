@@ -6,11 +6,13 @@ El objetivo principal de esta etrega es realizar un login mediante passport loca
 
 | Método  | Endpoint     | Descripción  |
 | ------- | -------------| ------------ |
-| GET | /api/producto | Permite recuperar todos los productos |
-| POST | /api/producto | Permite crear un nuevo producto |
-| GET | /api/usuario | Permite recuperar todos los usuarios |
-| POST | /api/usuario | Permite crear un nuevo usuario |
-| GET | / | Ruta default para probar express-handlebars |
+| GET | /producto | Permite recuperar todos los productos |
+| POST | /producto | Permite crear un nuevo producto |
+| GET | /usuario | Permite recuperar todos los usuarios |
+| POST | /usuario | Permite crear un nuevo usuario |
+| GET | / | Ruta default para el dashboard |
+| GET | /login | Permite iniciar sesion |
+| GET | /registro | Permite registrar un nuevo usuario |
 
 ## Paquetes
 
@@ -18,4 +20,4 @@ Los aquetes utilizados hasta ahora son express, mongoose, sequelize, dotenv, mar
 
 ## Observaciones
 
-Ya funciona el endpoint de vista de usuarios, luego voy a terminar el registro de usuarios y el login. Por último voy a hacer el envìo de la información al mail indicado por variable.
+Ya configure passport con local strategy y tengo el registro y el login. A la ruta raíz que es el dashboard, le puse el middleware para controlar si se muestra o no dependiendo de si el usuario está autenticado. Ahora bie, si no estoy logueado, no me muestra la ruta raiz, si hago el login con las credenciales correctas, me va a la ruta raíz, pero donde hago refres, me vuelve al login. No se me está grabando el req.session.passport creo.
